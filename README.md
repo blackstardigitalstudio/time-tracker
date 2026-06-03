@@ -120,6 +120,14 @@ git tag v1.2.0 && git push origin v1.2.0
 
 > 💡 Su Windows, la creazione dell'installer in locale richiede una volta la **Modalità sviluppatore** (Impostazioni → Privacy e sicurezza → Per sviluppatori) oppure un terminale da amministratore. La **versione portatile** invece si genera senza alcun permesso speciale.
 
+## ☕ Sostieni il progetto
+
+TimeTracker è gratuito e open source. Se ti fa risparmiare tempo e ti va di dire grazie, **offrimi un caffè** — mi aiuti a creare altre app e a tenere queste aggiornate.
+
+[![Offrimi un caffè](https://img.shields.io/badge/PayPal-Offrimi%20un%20caff%C3%A8-00457C.svg?logo=paypal)](https://paypal.me/messylove23)
+
+Hai trovato un bug o hai un'idea? Il canale è **sempre aperto**: apri una **[issue qui »](https://github.com/blackstardigitalstudio/time-tracker/issues)**. All'interno dell'app trovi gli stessi pulsanti ☕ e 💬 sempre a portata di mano.
+
 ## 🤝 Contribuire
 
 Idee, traduzioni e fix sono i benvenuti. Apri una *issue* o manda una *pull request*.

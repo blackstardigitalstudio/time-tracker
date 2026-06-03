@@ -58,7 +58,10 @@ window.TR = {
     invoiceWord: 'INVOICE', invNoLabel: 'No.', clientLabel: 'Client',
     servicesPeriod: 'Services · {label}', colDescription: 'Description',
     professionalService: 'Professional service', noServices: 'No services in this period.',
-    taxable: 'Taxable', ivaRow: 'VAT {p}%', paymentLabel: 'Payment'
+    taxable: 'Taxable', ivaRow: 'VAT {p}%', paymentLabel: 'Payment',
+    coffeeTitle: 'Enjoying TimeTracker?',
+    coffeeMsg: "Buy me a coffee if you'd like to say thanks — it helps me build more apps and keep these updated.",
+    coffeeBuy: 'Buy me a coffee', feedback: 'Feedback', later: 'Later', dontShowAgain: "Don't show again"
   },
   it: {
     noActiveTimer: 'Nessun timer attivo',
@@ -100,7 +103,10 @@ window.TR = {
     invoiceWord: 'FATTURA', invNoLabel: 'N.', clientLabel: 'Cliente',
     servicesPeriod: 'Prestazioni · {label}', colDescription: 'Descrizione',
     professionalService: 'Prestazione professionale', noServices: 'Nessuna prestazione nel periodo.',
-    taxable: 'Imponibile', ivaRow: 'IVA {p}%', paymentLabel: 'Pagamento'
+    taxable: 'Imponibile', ivaRow: 'IVA {p}%', paymentLabel: 'Pagamento',
+    coffeeTitle: 'Ti piace TimeTracker?',
+    coffeeMsg: 'Offrimi un caffè se vuoi ringraziarmi: mi aiuti a creare altre app e ad aggiornare queste.',
+    coffeeBuy: 'Offrimi un caffè', feedback: 'Feedback', later: 'Più tardi', dontShowAgain: 'Non mostrare più'
   },
   es: {
     noActiveTimer: 'Sin temporizador activo',
@@ -142,7 +148,10 @@ window.TR = {
     invoiceWord: 'FACTURA', invNoLabel: 'N.º', clientLabel: 'Cliente',
     servicesPeriod: 'Servicios · {label}', colDescription: 'Descripción',
     professionalService: 'Servicio profesional', noServices: 'Sin servicios en el periodo.',
-    taxable: 'Base imponible', ivaRow: 'IVA {p}%', paymentLabel: 'Pago'
+    taxable: 'Base imponible', ivaRow: 'IVA {p}%', paymentLabel: 'Pago',
+    coffeeTitle: '¿Te gusta TimeTracker?',
+    coffeeMsg: 'Invítame a un café si quieres dar las gracias: me ayudas a crear más apps y a mantener estas actualizadas.',
+    coffeeBuy: 'Invítame a un café', feedback: 'Comentarios', later: 'Más tarde', dontShowAgain: 'No mostrar más'
   },
   pt: {
     noActiveTimer: 'Nenhum temporizador ativo',
@@ -184,7 +193,10 @@ window.TR = {
     invoiceWord: 'FATURA', invNoLabel: 'N.º', clientLabel: 'Cliente',
     servicesPeriod: 'Serviços · {label}', colDescription: 'Descrição',
     professionalService: 'Serviço profissional', noServices: 'Sem serviços no período.',
-    taxable: 'Base tributável', ivaRow: 'IVA {p}%', paymentLabel: 'Pagamento'
+    taxable: 'Base tributável', ivaRow: 'IVA {p}%', paymentLabel: 'Pagamento',
+    coffeeTitle: 'Gosta do TimeTracker?',
+    coffeeMsg: 'Pague-me um café se quiser agradecer: ajuda-me a criar mais apps e a manter estas atualizadas.',
+    coffeeBuy: 'Pague-me um café', feedback: 'Feedback', later: 'Mais tarde', dontShowAgain: 'Não mostrar mais'
   },
   fr: {
     noActiveTimer: 'Aucun minuteur actif',
@@ -226,7 +238,10 @@ window.TR = {
     invoiceWord: 'FACTURE', invNoLabel: 'N°', clientLabel: 'Client',
     servicesPeriod: 'Prestations · {label}', colDescription: 'Description',
     professionalService: 'Prestation professionnelle', noServices: 'Aucune prestation sur la période.',
-    taxable: 'Base imposable', ivaRow: 'TVA {p}%', paymentLabel: 'Paiement'
+    taxable: 'Base imposable', ivaRow: 'TVA {p}%', paymentLabel: 'Paiement',
+    coffeeTitle: 'Vous aimez TimeTracker ?',
+    coffeeMsg: "Offrez-moi un café si vous voulez dire merci : ça m'aide à créer d'autres apps et à mettre celles-ci à jour.",
+    coffeeBuy: 'Offrez-moi un café', feedback: 'Commentaires', later: 'Plus tard', dontShowAgain: 'Ne plus afficher'
   },
   de: {
     noActiveTimer: 'Kein aktiver Timer',
@@ -268,7 +283,10 @@ window.TR = {
     invoiceWord: 'RECHNUNG', invNoLabel: 'Nr.', clientLabel: 'Kunde',
     servicesPeriod: 'Leistungen · {label}', colDescription: 'Beschreibung',
     professionalService: 'Professionelle Leistung', noServices: 'Keine Leistungen im Zeitraum.',
-    taxable: 'Nettobetrag', ivaRow: 'MwSt {p}%', paymentLabel: 'Zahlung'
+    taxable: 'Nettobetrag', ivaRow: 'MwSt {p}%', paymentLabel: 'Zahlung',
+    coffeeTitle: 'Gefällt dir TimeTracker?',
+    coffeeMsg: 'Spendier mir einen Kaffee, wenn du Danke sagen möchtest – das hilft mir, weitere Apps zu bauen und diese aktuell zu halten.',
+    coffeeBuy: 'Kaffee spendieren', feedback: 'Feedback', later: 'Später', dontShowAgain: 'Nicht mehr anzeigen'
   },
   ru: {
     noActiveTimer: 'Нет активного таймера',
@@ -310,7 +328,10 @@ window.TR = {
     invoiceWord: 'СЧЁТ', invNoLabel: '№', clientLabel: 'Клиент',
     servicesPeriod: 'Услуги · {label}', colDescription: 'Описание',
     professionalService: 'Профессиональная услуга', noServices: 'Нет услуг за период.',
-    taxable: 'Налоговая база', ivaRow: 'НДС {p}%', paymentLabel: 'Оплата'
+    taxable: 'Налоговая база', ivaRow: 'НДС {p}%', paymentLabel: 'Оплата',
+    coffeeTitle: 'Нравится TimeTracker?',
+    coffeeMsg: 'Купите мне кофе, если хотите сказать спасибо — это помогает мне создавать новые приложения и обновлять эти.',
+    coffeeBuy: 'Купить мне кофе', feedback: 'Отзыв', later: 'Позже', dontShowAgain: 'Больше не показывать'
   },
   zh: {
     noActiveTimer: '无活动计时器',
@@ -352,7 +373,10 @@ window.TR = {
     invoiceWord: '发票', invNoLabel: '编号', clientLabel: '客户',
     servicesPeriod: '服务 · {label}', colDescription: '描述',
     professionalService: '专业服务', noServices: '该期间无服务。',
-    taxable: '应税金额', ivaRow: '增值税 {p}%', paymentLabel: '付款'
+    taxable: '应税金额', ivaRow: '增值税 {p}%', paymentLabel: '付款',
+    coffeeTitle: '喜欢 TimeTracker 吗？',
+    coffeeMsg: '如果想表示感谢，请我喝杯咖啡吧——这能帮助我开发更多应用并持续更新它们。',
+    coffeeBuy: '请我喝咖啡', feedback: '反馈', later: '稍后', dontShowAgain: '不再显示'
   },
   ja: {
     noActiveTimer: 'アクティブなタイマーなし',
@@ -394,7 +418,10 @@ window.TR = {
     invoiceWord: '請求書', invNoLabel: 'No.', clientLabel: '顧客',
     servicesPeriod: '業務 · {label}', colDescription: '内容',
     professionalService: '専門業務', noServices: 'この期間の業務はありません。',
-    taxable: '課税対象額', ivaRow: '消費税 {p}%', paymentLabel: '支払い'
+    taxable: '課税対象額', ivaRow: '消費税 {p}%', paymentLabel: '支払い',
+    coffeeTitle: 'TimeTracker は気に入りましたか？',
+    coffeeMsg: '感謝の気持ちとしてコーヒーをおごってください。新しいアプリ作りや更新の励みになります。',
+    coffeeBuy: 'コーヒーをおごる', feedback: 'フィードバック', later: '後で', dontShowAgain: '今後表示しない'
   },
   ar: {
     noActiveTimer: 'لا يوجد مؤقّت نشط',
@@ -436,7 +463,10 @@ window.TR = {
     invoiceWord: 'فاتورة', invNoLabel: 'رقم', clientLabel: 'العميل',
     servicesPeriod: 'الخدمات · {label}', colDescription: 'الوصف',
     professionalService: 'خدمة مهنية', noServices: 'لا خدمات في الفترة.',
-    taxable: 'المبلغ الخاضع', ivaRow: 'ضريبة {p}%', paymentLabel: 'الدفع'
+    taxable: 'المبلغ الخاضع', ivaRow: 'ضريبة {p}%', paymentLabel: 'الدفع',
+    coffeeTitle: 'هل يعجبك TimeTracker؟',
+    coffeeMsg: 'ادعُني إلى قهوة إن أردت شكري — فهذا يساعدني على إنشاء تطبيقات أخرى وتحديث هذه.',
+    coffeeBuy: 'ادعُني إلى قهوة', feedback: 'ملاحظات', later: 'لاحقًا', dontShowAgain: 'عدم الإظهار مجددًا'
   },
   hi: {
     noActiveTimer: 'कोई सक्रिय टाइमर नहीं',
@@ -478,7 +508,10 @@ window.TR = {
     invoiceWord: 'चालान', invNoLabel: 'सं.', clientLabel: 'ग्राहक',
     servicesPeriod: 'सेवाएँ · {label}', colDescription: 'विवरण',
     professionalService: 'व्यावसायिक सेवा', noServices: 'इस अवधि में कोई सेवा नहीं।',
-    taxable: 'कर योग्य राशि', ivaRow: 'कर {p}%', paymentLabel: 'भुगतान'
+    taxable: 'कर योग्य राशि', ivaRow: 'कर {p}%', paymentLabel: 'भुगतान',
+    coffeeTitle: 'TimeTracker पसंद आया?',
+    coffeeMsg: 'धन्यवाद कहना चाहें तो मुझे एक कॉफ़ी पिलाएँ — इससे मुझे और ऐप्स बनाने और इन्हें अपडेट रखने में मदद मिलती है।',
+    coffeeBuy: 'मुझे कॉफ़ी पिलाएँ', feedback: 'फ़ीडबैक', later: 'बाद में', dontShowAgain: 'फिर न दिखाएँ'
   },
   tr: {
     noActiveTimer: 'Etkin zamanlayıcı yok',
@@ -520,6 +553,9 @@ window.TR = {
     invoiceWord: 'FATURA', invNoLabel: 'No.', clientLabel: 'Müşteri',
     servicesPeriod: 'Hizmetler · {label}', colDescription: 'Açıklama',
     professionalService: 'Profesyonel hizmet', noServices: 'Bu dönemde hizmet yok.',
-    taxable: 'Matrah', ivaRow: 'KDV {p}%', paymentLabel: 'Ödeme'
+    taxable: 'Matrah', ivaRow: 'KDV {p}%', paymentLabel: 'Ödeme',
+    coffeeTitle: "TimeTracker'ı beğendin mi?",
+    coffeeMsg: 'Teşekkür etmek istersen bana bir kahve ısmarla — bu, daha fazla uygulama yapmama ve bunları güncel tutmama yardımcı olur.',
+    coffeeBuy: 'Bana bir kahve ısmarla', feedback: 'Geri bildirim', later: 'Daha sonra', dontShowAgain: 'Bir daha gösterme'
   }
 };

@@ -9,6 +9,10 @@ const screenshot = require('screenshot-desktop');
 const dataFile = path.join(app.getPath('userData'), 'data.json');
 const shotsDir = path.join(app.getPath('userData'), 'screenshots');
 
+// Link fissi (l'unica azione "verso l'esterno": aprire il browser predefinito).
+const DONATE_URL = 'https://paypal.me/messylove23';
+const FEEDBACK_URL = 'https://github.com/blackstardigitalstudio/time-tracker/issues';
+
 let state;
 let win = null, tray = null, shotTimer = null, idleTimer = null;
 
@@ -26,7 +30,8 @@ function defaultState() {
     issuer: {
       name: '', vat: '', cf: '', address: '', iban: '',
       ivaPercent: 22, prefix: new Date().getFullYear() + '/', counter: 1, note: ''
-    }
+    },
+    meta: { firstRunAt: null, coffeeDone: false }
   };
 }
 
@@ -37,7 +42,8 @@ function loadState() {
     return {
       ...d, ...raw,
       settings: { ...d.settings, ...(raw.settings || {}) },
-      issuer: { ...d.issuer, ...(raw.issuer || {}) }
+      issuer: { ...d.issuer, ...(raw.issuer || {}) },
+      meta: { ...d.meta, ...(raw.meta || {}) }
     };
   } catch { return defaultState(); }
 }
@@ -192,6 +198,9 @@ ipcMain.handle('delete-project', (_e, id) => {
 ipcMain.handle('update-settings', (_e, s) => { state.settings = { ...state.settings, ...s }; saveState(); setupTimers(); broadcast(); });
 ipcMain.handle('update-issuer', (_e, o) => { state.issuer = { ...state.issuer, ...o }; saveState(); broadcast(); });
 ipcMain.handle('open-shots', () => shell.openPath(shotsDir));
+ipcMain.handle('open-donate', () => shell.openExternal(DONATE_URL));
+ipcMain.handle('open-feedback', () => shell.openExternal(FEEDBACK_URL));
+ipcMain.handle('dismiss-coffee', () => { state.meta.coffeeDone = true; saveState(); broadcast(); });
 ipcMain.handle('reset-data', () => { state = defaultState(); saveState(); registerShortcuts(); broadcast(); updateTray(); });
 
 ipcMain.handle('export-csv', async (_e, csv) => {
@@ -229,6 +238,7 @@ if (!app.requestSingleInstanceLock()) {
   app.whenReady().then(() => {
     if (!fs.existsSync(shotsDir)) fs.mkdirSync(shotsDir, { recursive: true });
     state = loadState();
+    if (!state.meta.firstRunAt) { state.meta.firstRunAt = Date.now(); saveState(); }
     createWindow(); createTray(); registerShortcuts(); setupTimers();
     app.on('activate', () => showWindow());
   });

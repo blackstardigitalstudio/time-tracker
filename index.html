@@ -61,6 +61,18 @@
   .chip { display:inline-block; width:9px; height:9px; border-radius:50%; margin-right:7px; }
   [dir=rtl] .chip { margin-right:0; margin-left:7px; }
 
+  /* Offrimi un caffè + feedback */
+  .coffee { background:linear-gradient(135deg,#1b2433,#141b27); border:1px solid var(--accent); border-radius:14px; padding:16px; margin-bottom:16px; }
+  .coffee .ct { font-weight:700; font-size:15px; margin-bottom:6px; }
+  .coffee .cm { color:var(--mut); font-size:13px; line-height:1.5; margin-bottom:12px; }
+  .coffee .ca { display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+  .coffee .ca .grow { flex:1; }
+  button.link { background:none; border:none; color:var(--mut); padding:6px 4px; font-size:12px; text-decoration:underline; }
+  button.link:hover { color:var(--accent); }
+  .footer { margin-top:26px; padding-top:14px; border-top:1px solid var(--line); display:flex; align-items:center; justify-content:center; gap:10px; flex-wrap:wrap; color:var(--mut); font-size:12px; }
+  .footer .madein { width:100%; text-align:center; color:var(--mut); margin-top:6px; }
+  .footer .sep { color:var(--line); }
+
   /* Responsive: schermi stretti */
   @media (max-width:400px){
     body { padding:11px; }
@@ -81,6 +93,18 @@
   <div class="topbar">
     <div class="brand"><span class="logo">⏱</span><span>TimeTracker</span></div>
     <div class="lang-wrap"><span>🌐</span><span data-i18n="language">Lingua</span><select class="lang" id="langSel"></select></div>
+  </div>
+
+  <div class="coffee" id="coffeeCard" style="display:none">
+    <div class="ct" id="coffeeTitle"></div>
+    <div class="cm" id="coffeeMsg"></div>
+    <div class="ca">
+      <button class="primary" id="coffeeBuy">☕ <span data-i18n="coffeeBuy">Offrimi un caffè</span></button>
+      <button id="coffeeFeedback">💬 <span data-i18n="feedback">Feedback</span></button>
+      <span class="grow"></span>
+      <button id="coffeeLater" data-i18n="later">Più tardi</button>
+      <button class="link" id="coffeeNever" data-i18n="dontShowAgain">Non mostrare più</button>
+    </div>
   </div>
 
   <div class="active-panel">
@@ -180,6 +204,13 @@
         <button class="danger" id="resetBtn" data-i18n="resetData">Reset dati</button>
       </div>
     </div>
+  </div>
+
+  <div class="footer">
+    <button class="link" id="footCoffee">☕ <span data-i18n="coffeeBuy">Offrimi un caffè</span></button>
+    <span class="sep">·</span>
+    <button class="link" id="footFeedback">💬 <span data-i18n="feedback">Feedback</span></button>
+    <div class="madein">🇮🇹 Made in Italy</div>
   </div>
 
 <script src="i18n.js"></script>

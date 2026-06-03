@@ -4,6 +4,8 @@
 let state = null, editingId = null;
 let rangeFrom = 0, rangeTo = 0, rangeKey = 'week';
 let LANG = 'en', sysLang = 'en', locale = 'en-US';
+let coffeeSnoozed = false;
+const COFFEE_AFTER_DAYS = 7;
 
 const $ = id => document.getElementById(id);
 const MAC = window.api.isMac;
@@ -118,6 +120,16 @@ function render(){
   refreshInvClient();
   $('invHint').textContent = t('invoiceHint',{label: rangeLabelText()});
   renderReport();
+  updateCoffee();
+}
+
+// Mostra l'invito al caffè una sola volta, dopo COFFEE_AFTER_DAYS giorni dal primo avvio.
+function updateCoffee(){
+  const m = state.meta || {};
+  const days = m.firstRunAt ? (Date.now() - m.firstRunAt) / 86400000 : 0;
+  const due = !m.coffeeDone && !coffeeSnoozed && days >= COFFEE_AFTER_DAYS;
+  $('coffeeCard').style.display = due ? '' : 'none';
+  if (due) { $('coffeeTitle').textContent = t('coffeeTitle'); $('coffeeMsg').textContent = t('coffeeMsg'); }
 }
 
 function tick(){ if(!state) return; const a=state.projects.find(p=>p.id===state.activeProjectId); $('aTime').textContent = a?fmt(projMs(a.id,dayStart())):'00:00:00'; }
@@ -270,6 +282,12 @@ $('sShot').onchange=()=>window.api.updateSettings({screenshotIntervalMin:+$('sSh
 $('sIdle').onchange=()=>window.api.updateSettings({idleTimeoutMin:+$('sIdle').value});
 $('sOn').onchange=()=>window.api.updateSettings({screenshotsEnabled:$('sOn').checked});
 $('folderBtn').onclick=()=>window.api.openShots();
+$('coffeeBuy').onclick=()=>{ window.api.openDonate(); window.api.dismissCoffee(); };
+$('coffeeFeedback').onclick=()=>window.api.openFeedback();
+$('coffeeLater').onclick=()=>{ coffeeSnoozed=true; updateCoffee(); };
+$('coffeeNever').onclick=()=>window.api.dismissCoffee();
+$('footCoffee').onclick=()=>window.api.openDonate();
+$('footFeedback').onclick=()=>window.api.openFeedback();
 $('resetBtn').onclick=()=>{ if(confirm(t('confirmReset'))) window.api.resetData(); };
 document.querySelectorAll('[data-period]').forEach(b=>b.onclick=()=>setPeriod(b.dataset.period));
 $('rApply').onclick=applyCustom;
