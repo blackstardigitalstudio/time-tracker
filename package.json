@@ -1,28 +1,27 @@
 {
   "name": "time-tracker",
-  "version": "1.2 .0",
-  "description": "Tracker ore freelance  con hotkey globali, screenshot, report e fatt ure PDF",
-  "author": "TimeTracker — Made i n Italy",
+  "version": "1.2.1",
+  "description": "Tracker ore freelance con hotkey globali, screenshot, report e fatture PDF",
+  "author": "TimeTracker — Made in Italy",
   "license": "MIT",
-  "main": "main .js",
+  "main": "main.js",
   "scripts": {
-    "start": "electron . ",
+    "start": "electron .",
     "dist": "electron-builder"
   },
-  "dev Dependencies": {
+  "devDependencies": {
     "electron": "^30.0.0",
-     "electron-builder": "^24.13.3"
+    "electron-builder": "^24.13.3"
   },
-  "dep endencies": {
-    "screenshot-desktop": "^1.1 5.0"
+  "dependencies": {
+    "screenshot-desktop": "^1.15.0"
   },
   "build": {
-    "appId": "com.tuon ome.timetracker",
-    "productName": "TimeTra cker",
-    "files": ["main.js", "preload.js",  "index.html", "i18n.js", "renderer.js", "ico n.png"],
-    "mac": { "target": "dmg", "icon" : "icon.png", "artifactName": "TimeTracker.${ ext}", "category": "public.app-category.produ ctivity" },
-    "win": { "target": ["nsis", " zip"], "icon": "icon.png" },
-    "nsis": { "a rtifactName": "TimeTracker-Setup.${ext}" }
-   }
+    "appId": "com.tuonome.timetracker",
+    "productName": "TimeTracker",
+    "files": ["main.js", "preload.js", "index.html", "i18n.js", "renderer.js", "icon.png"],
+    "mac": { "target": "dmg", "icon": "icon.png", "artifactName": "TimeTracker.${ext}", "category": "public.app-category.productivity" },
+    "win": { "target": ["nsis", "zip"], "icon": "icon.png" },
+    "nsis": { "artifactName": "TimeTracker-Setup.${ext}" }
+  }
 }
- 
