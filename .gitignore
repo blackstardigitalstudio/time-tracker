@@ -4,3 +4,4 @@ dist/
 .DS_Store
 Thumbs.db
 data.json
+demo_frames/

@@ -13,6 +13,9 @@ const shotsDir = path.join(app.getPath('userData'), 'screenshots');
 const DONATE_URL = 'https://paypal.me/messylove23';
 const FEEDBACK_URL = 'https://github.com/blackstardigitalstudio/time-tracker/issues';
 
+// Modalità cattura demo (solo con TT_CAPTURE=1): pilota la UI e salva i fotogrammi.
+const CAPTURE = !!process.env.TT_CAPTURE;
+
 let state;
 let win = null, tray = null, shotTimer = null, idleTimer = null;
 
@@ -49,6 +52,7 @@ function loadState() {
 }
 
 function saveState() {
+  if (CAPTURE) return; // non toccare i dati reali durante la cattura demo
   try { fs.writeFileSync(dataFile, JSON.stringify(state, null, 2)); }
   catch (e) { console.error('save error', e); }
 }
@@ -136,6 +140,10 @@ function createWindow() {
     }
   });
   win.loadFile('index.html');
+  if (CAPTURE) {
+    win.setContentSize(480, 624);
+    win.webContents.once('did-finish-load', () => runCapture());
+  }
   if (process.env.TT_DEBUG) {
     win.webContents.on('console-message', (_e, level, msg, line, src) => console.log(`[renderer ${level}] ${msg} (${src}:${line})`));
     win.webContents.on('did-fail-load', (_e, code, desc) => console.log(`[did-fail-load] ${code} ${desc}`));
@@ -146,6 +154,33 @@ function createWindow() {
 }
 
 function showWindow() { if (!win || win.isDestroyed()) createWindow(); win.show(); win.focus(); }
+
+async function runCapture() {
+  const framesDir = path.join(__dirname, 'demo_frames');
+  try { fs.rmSync(framesDir, { recursive: true, force: true }); } catch {}
+  fs.mkdirSync(framesDir, { recursive: true });
+  const sleep = (ms) => new Promise(r => setTimeout(r, ms));
+  const TOTAL = 64, INT = 110;
+  const setLang = (code) => { state.settings.lang = code; broadcast(); };
+  const actions = {
+    7:  () => toggleProject(state.projects[0].id),   // avvia Mario
+    26: () => toggleProject(state.projects[1].id),   // passa a Luca
+    40: () => setLang('en'),                          // lingua: English
+    53: () => setLang('ar')                           // lingua: العربية (RTL)
+  };
+  try { await win.webContents.insertCSS('::-webkit-scrollbar{width:0!important;height:0!important;display:none!important} html,body{overflow:hidden!important}'); } catch {}
+  await sleep(700);
+  for (let i = 0; i < TOTAL; i++) {
+    if (actions[i]) { actions[i](); await sleep(130); }
+    try {
+      const img = await win.webContents.capturePage();
+      fs.writeFileSync(path.join(framesDir, 'f' + String(i).padStart(3, '0') + '.png'), img.toPNG());
+    } catch (e) { console.error('capture frame', i, e); }
+    await sleep(INT);
+  }
+  console.log('[capture] completato: ' + TOTAL + ' fotogrammi in ' + framesDir);
+  app.isQuitting = true; app.quit();
+}
 
 function trayImage() {
   const p = path.join(__dirname, 'icon.png');
@@ -238,8 +273,14 @@ if (!app.requestSingleInstanceLock()) {
   app.whenReady().then(() => {
     if (!fs.existsSync(shotsDir)) fs.mkdirSync(shotsDir, { recursive: true });
     state = loadState();
+    if (CAPTURE) {
+      state = defaultState();
+      state.meta.firstRunAt = Date.now();          // niente card "caffè" durante la demo
+      state.settings.screenshotsEnabled = false;   // niente screenshot del desktop
+    }
     if (!state.meta.firstRunAt) { state.meta.firstRunAt = Date.now(); saveState(); }
-    createWindow(); createTray(); registerShortcuts(); setupTimers();
+    createWindow(); createTray(); registerShortcuts();
+    if (!CAPTURE) setupTimers();
     app.on('activate', () => showWindow());
   });
   app.on('window-all-closed', () => {});

@@ -25,6 +25,18 @@ Cambi cliente con una **scorciatoia globale**, l'app fa **screenshot** di prova,
 
 ---
 
+<div align="center">
+
+### 🎬 Guardalo in azione
+
+![TimeTracker — demo: avvio timer, cambio cliente e cambio lingua](timetracker-demo.gif)
+
+*Avvii un cliente con un clic, il timer parte, cambi progetto e lingua al volo — 12 lingue, anche da destra a sinistra.*
+
+</div>
+
+---
+
 ## Il problema
 
 Lavori per più clienti a pacchetti di ore. Salti da un progetto all'altro decine di volte al giorno.
