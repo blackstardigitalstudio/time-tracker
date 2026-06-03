@@ -1,0 +1,27 @@
+{
+  "name": "time-tracker",
+  "version": "1.2.0",
+  "description": "Tracker ore freelance con hotkey globali, screenshot, report e fatture PDF",
+  "author": "TimeTracker — Made in Italy",
+  "license": "MIT",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder"
+  },
+  "devDependencies": {
+    "electron": "^30.0.0",
+    "electron-builder": "^24.13.3"
+  },
+  "dependencies": {
+    "screenshot-desktop": "^1.15.0"
+  },
+  "build": {
+    "appId": "com.tuonome.timetracker",
+    "productName": "TimeTracker",
+    "files": ["main.js", "preload.js", "index.html", "i18n.js", "renderer.js", "icon.png"],
+    "mac": { "target": "dmg", "icon": "icon.png", "artifactName": "TimeTracker.${ext}", "category": "public.app-category.productivity" },
+    "win": { "target": ["nsis", "zip"], "icon": "icon.png" },
+    "nsis": { "artifactName": "TimeTracker-Setup.${ext}" }
+  }
+}
