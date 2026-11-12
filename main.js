@@ -145,7 +145,7 @@ function createWindow() {
     win.webContents.once('did-finish-load', () => runCapture());
   }
   if (process.env.TT_DEBUG) {
-    win.webContents.on('console-message', (_e, level, msg, line, src) => console.log(`[renderer ${level}] ${msg} (${src}:${line})`));
+    win.webContents.on('console-message', ({ level, message, lineNumber, sourceId }) => console.log(`[renderer ${level}] ${message} (${sourceId}:${lineNumber})`));
     win.webContents.on('did-fail-load', (_e, code, desc) => console.log(`[did-fail-load] ${code} ${desc}`));
     win.webContents.on('preload-error', (_e, p, err) => console.log(`[preload-error] ${err}`));
   }
